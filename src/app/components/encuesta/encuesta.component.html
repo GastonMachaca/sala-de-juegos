@@ -1,0 +1,124 @@
+<div class="container">
+    <main>
+      <div class="row g-5 justify-content-md-center">
+        <div class="col-md-7 col-lg-5">
+          <h4 class="mb-3">Encuesta</h4>
+          <form [formGroup]="formAltaRepartidor" class="form" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Apellido*</label>
+                <input type="text" class="form-control" formControlName="apellido" [ngClass]="{ 'is-invalid': submitted && f['apellido'].errors }" required>
+                <div *ngIf="submitted && f['apellido'].errors" class="invalid-feedback">
+                  <div *ngIf="f['apellido'].errors['required']">Completar Apellido</div>
+                  <div *ngIf="f['apellido'].errors['pattern']">
+                    El apellido no puede contener caracteres invalidos (numeros,puntos,espacios,etc.)
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Nombre*</label>
+                <input type="text" class="form-control" formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }" required>
+                <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+                  <div *ngIf="f['nombre'].errors['required']">Completar Nombre</div>
+                  <div *ngIf="f['nombre'].errors['pattern']">
+                    El nombre no puede contener caracteres invalidos (numeros,puntos,espacios,etc.)
+                  </div>
+                </div>
+              </div>
+  
+              <!-- <div class="col-12">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">@</span>
+                  <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                <div class="invalid-feedback">
+                    Your username is required.
+                  </div>
+                </div>
+              </div> -->
+  
+              <div class="col-12">
+                <label class="form-label">Edad*</label>
+                <input type="number" class="form-control" formControlName="edad" [ngClass]="{ 'is-invalid': submitted && f['edad'].errors }" required>
+                <div *ngIf="submitted && f['edad'].errors"  class="invalid-feedback">
+                  <div *ngIf="f['edad'].errors['required']">Completar Edad</div>
+                  <div *ngIf="f['edad'].errors['min']">
+                    Tienes que ser mayor de 18 años.
+                  </div>
+                  <div *ngIf="f['edad'].errors['max']">
+                    Solo se acepta hasta 99 años.
+                  </div>
+                  <div *ngIf="f['edad'].errors['pattern']">
+                    No puede haber edad con coma.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-12">
+                <label class="form-label">Numero de Telefono*</label>
+                <input type="text" class="form-control" formControlName="numeroTelefono" [ngClass]="{ 'is-invalid': submitted && f['numeroTelefono'].errors }" required>
+                <div *ngIf="submitted && f['numeroTelefono'].errors"  class="invalid-feedback">
+                  <div *ngIf="f['numeroTelefono'].errors['required']">Completar Numero de Telefono</div>
+                  <div *ngIf="f['numeroTelefono'].errors['minLength']">
+                    El numero tiene que contener mas de 10 caracteres.
+                  </div>
+                  <!-- <div *ngIf="f['numeroTelefono'].errors['maxLength']">
+                    El numero tiene que contener exactamente 10 caracteres.
+                  </div> -->
+                  <div *ngIf="f['numeroTelefono'].errors['pattern']">
+                    Inserte un numero valido de 10 caracteres.
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="md-form">
+                  <label class="form-label">Mejoras*</label>
+                  <textarea type="text" formControlName="mejoras" class="md-textarea form-control" [ngClass]="{ 'is-invalid': submitted && f['mejoras'].errors }" mdbInput></textarea>
+                  <div *ngIf="submitted && f['mejoras'].errors" class="invalid-feedback">
+                    <div *ngIf="f['mejoras'].errors['required']">Debe completar el campo</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Experiencia de Usuario*</label>
+                <select class="form-select" formControlName="calificacion" [ngClass]="{ 'is-invalid': submitted && f['calificacion'].errors }">
+                  <!-- <option value="" selected>Seleccione...</option> -->
+                  <option value="regular">Regular</option>
+                  <option value="bueno">Bueno</option>
+                  <option value="muyBueno">Muy Bueno</option>
+                  <option value="excelente">Excelente</option>
+                </select>
+                <div *ngIf="submitted && f['calificacion'].errors" class="invalid-feedback">
+                  <div *ngIf="f['calificacion'].errors['required']">Debe completar el campo</div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Genero*</label>
+                <br>
+                <div *ngFor="let g of generos"> 
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="genero" id="inlineRadio1" value="{{g}}">
+                    <label class="form-check-label" for="inlineRadio1">{{g}}</label>
+                  </div>
+                </div>
+                <p class="text-danger" *ngIf="this.formAltaRepartidor.controls['genero'].errors?.['required'] && submitted">
+                  Debe seleccionar un opcion
+                </p>
+              </div>
+
+            </div>
+
+            <hr class="my-4">
+            
+            <button class="btn btn-success" type="submit">Enviar</button>
+
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  

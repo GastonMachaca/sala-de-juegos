@@ -1,0 +1,30 @@
+<div class="container p-2">
+
+    <div class="row p-2 justify-content-md-center bg-dark border rounded ">
+        <table class="table table-success table-bordered table-sm" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Calificacion</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Numero de Telefono</th>
+                <th scope="col">Comentarios</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rtas of resultadosEncuesta | paginate : {itemsPerPage : 5, currentPage: page}">
+                <th scope="row">{{rtas.nombre}} - {{rtas.apellido}}</th>
+                <td>{{rtas.calificacion}}</td>
+                <td>{{rtas.edad}}</td>
+                <td scope="row">{{rtas.genero}}</td>
+                <td>{{rtas.numeroTelefono}}</td>
+                <td>{{rtas.mejoras}}</td>
+              </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+
+
+</div>

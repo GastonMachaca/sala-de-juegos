@@ -1,0 +1,45 @@
+
+<div class="page">
+    <div class="container">
+      <div class="left">
+        <div class="login">Game Center</div>
+        <div class="message">¿No tiene una cuenta? De click<a routerLink="/registro"> aca</a></div>
+      </div>
+      <div class="right">
+        <div class="form">
+          <form [formGroup]="frmUsuario">
+            <div class="input-cont">
+              <div class="input">
+                <input type="text" class="form-control" formControlName="usuario" required>
+                <label>Email</label>
+              </div>
+              <div class="input">
+                <input type="password" class="form-control" formControlName="password" required>
+                <label>Contraseña</label>
+              </div>
+            </div>
+  
+            <div class="acceso">
+              <button class="btn btnAcceso" type="submit" (click)="Login()" [disabled]= "frmUsuario.invalid">
+                <span>ACCEDER</span>
+              </button>
+            </div>
+  
+            <div class="accesoRapido">
+              <button class="btn btnAccesoRapido" (click) = "quickAccess()">
+                <span>ACCESO RAPIDO</span>
+              </button>
+            </div>
+
+            <div class="accesoRapido py-2">
+              <button class="btn btnAccesoRapido" style="margin-left: 0px; padding: 5px 0px;" (click) = "quickAccessAdministrador()">
+                <span>ACCESO ADMINISTRADOR</span>
+              </button>
+            </div>
+  
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

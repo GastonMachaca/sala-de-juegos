@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row g-5 p-4 justify-content-md-center">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="juegoSeleccionado">
+            <option value="" selected>Seleccione un juego para ver su listado de puntajes...</option>
+            <option value="ahorcado">Ahorcado</option>
+            <option value="mayorMenor">Mayor y Menor</option>
+            <option value="preguntados">Preguntados</option>
+            <option value="fastEye">Fast-Eye</option>
+          </select>
+    </div>
+
+    
+    <div *ngIf="juegoSeleccionado == 'ahorcado'" class="row p-2 justify-content-md-center bg-dark border rounded ">
+        <table class="table table-success table-bordered table-sm" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Fecha de Record</th>
+                <th scope="col">Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rtas of recordGameAhorcado | paginate : {itemsPerPage : 5, currentPage: page}">
+                <th scope="row">{{rtas.username}}</th>
+                <td>{{rtas.fecha}}</td>
+                <td>{{rtas.puntaje}}</td>
+              </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+
+    <div *ngIf="juegoSeleccionado == 'mayorMenor'" class="row p-2 justify-content-md-center bg-dark border rounded ">
+        <table class="table table-success table-bordered table-sm" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Fecha de Record</th>
+                <th scope="col">Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rtas of recordGameMayorMenor | paginate : {itemsPerPage : 5, currentPage: page}">
+                <th scope="row">{{rtas.username}}</th>
+                <td>{{rtas.fecha}}</td>
+                <td>{{rtas.puntaje}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+
+    <div *ngIf="juegoSeleccionado == 'preguntados'" class="row p-2 justify-content-md-center bg-dark border rounded ">
+        <table class="table table-success table-bordered table-sm" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Fecha de Record</th>
+                <th scope="col">Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rtas of recordGamePreguntados | paginate : {itemsPerPage : 5, currentPage: page}">
+                <th scope="row">{{rtas.username}}</th>
+                <td>{{rtas.fecha}}</td>
+                <td>{{rtas.puntaje}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+    </div>
+
+    <div *ngIf="juegoSeleccionado == 'fastEye'" class="row p-2 justify-content-md-center bg-dark border rounded ">
+        <table class="table table-success table-bordered table-sm" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Fecha de Record</th>
+                <th scope="col">Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rtas of recordGameFastEye | paginate : {itemsPerPage : 5, currentPage: page}">
+                <th scope="row">{{rtas.username}}</th>
+                <td>{{rtas.fecha}}</td>
+                <td>{{rtas.puntaje}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+    </div>
+
+</div>

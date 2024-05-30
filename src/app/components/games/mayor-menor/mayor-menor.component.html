@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col">
+        <div class="carta center-h center-v">
+            <span>{{numeroCarta}}</span>
+        </div>
+    </div>
+    <div class="col">
+        <div class="carta center-h center-v">
+            <span *ngIf="mostrarCarta">{{numeroAux}}</span>
+        </div>
+    </div>
+    <div class="col">
+        <p>{{mensaje}}</p>
+        <p>Puntos: {{puntos}}</p>
+        <button (click)="mayor()" class="btn btn-success">Mayor</button>
+        <button (click)="menor()" class="btn btn-success">Menor</button>
+    </div>
+</div>

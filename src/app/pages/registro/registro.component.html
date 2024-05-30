@@ -1,0 +1,91 @@
+
+<div class="page">
+    <div class="container">
+      <div class="left">
+        <div class="login">Registro</div>
+        <div class="eula">¿Ya tiene una cuenta? De click<a routerLink="/login"> aca</a></div>
+      </div>
+      <div class="right">
+        <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            
+            <div class="input-cont">
+              <div class="input">
+                <input type="text" class="form-control" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" required>
+                <label>Usuario</label>
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                  <div *ngIf="f['username'].errors['required']">Usuario es requerido</div>
+                  <div *ngIf="f['username'].errors['minlength']">
+                    Usuario no puede tener menos de 6 caracteres
+                  </div>
+                  <div *ngIf="f['username'].errors['maxlength']">
+                    Usuario no puede tener mas de 20 caracteres
+                  </div>
+                  <div *ngIf="f['username'].errors['usuarioExistente']">
+                    El nombre de usuario ingresado ya existe
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="input-cont">
+              <div class="input">
+                <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" required>
+                <label>Email</label>
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors['required']">Email es requerido</div>
+                  <div *ngIf="f['email'].errors['email']">Email invalido</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="input-cont">
+              <div class="input">
+                <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" required>
+                <label>Contraseña</label>
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                  <div *ngIf="f['password'].errors['required']">Contraseña es requerida</div>
+                  <div *ngIf="f['password'].errors['minlength']">
+                    Contraseña tiene que superar los 6 caracteres
+                  </div>
+                  <div *ngIf="f['password'].errors['maxlength']">
+                    Contraseña no debe superar los 40 caracteres
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="input-cont">
+              <div class="input">
+                <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" required>
+                <label>Confirmar Contraseña</label>
+                <div
+                *ngIf="submitted && f['confirmPassword'].errors"
+                class="invalid-feedback"
+                >
+                  <div *ngIf="f['confirmPassword'].errors['required']">
+                    Contraseña es requerida
+                  </div>
+                  <div *ngIf="f['confirmPassword'].errors['matching']">
+                    La contraseña no coincide
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="acceso">
+              <button type="submit" class="btn btnAcceso">
+                <span>Registrar</span>
+              </button>
+              <button type="button" class="btn btnAccesoRapido" (click)="onReset()">
+                <span>Reset</span>
+              </button>
+            </div>
+  
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </div>

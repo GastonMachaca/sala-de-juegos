@@ -1,0 +1,27 @@
+
+<div class="card text-center cardContainer bg-dark">
+    <div class="card-body">
+        <div class="chat-window">
+            <div class="app-mensajes" id="app-mensajes">
+                <div *ngFor="let chat of chatService.chats" [ngClass]="{'text-end' : username == chat.uid,
+                                                                        'text-start' : username != chat.uid}"> 
+                    <span class="badge" [ngClass]="{'bg-primary' : chatService.username == chat.uid,
+                                                    'bg-success' : chatService.username != chat.uid}">{{chat.nombre}} - {{chat.fecha}}</span>
+                    <p>
+                        {{chat.mensaje}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" (keyup.enter)="enviarMensaje()"  [(ngModel)]="mensaje" placeholder="Ingrese su mensaje">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">
+                <input type="image" src="https://w7.pngwing.com/pngs/841/271/png-transparent-computer-icons-send-miscellaneous-angle-triangle-thumbnail.png" width="25px" (click)="enviarMensaje()">
+              </span>
+            </div>
+          </div>
+    </div>
+</div>

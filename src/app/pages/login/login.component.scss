@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  place-content: center;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .page {
+    /* background: linear-gradient(220deg,rgb(255, 100, 255),rgb(0, 0, 133),black); */
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+.container {
+  display: flex;
+  height: 360px;
+  margin: 0 auto;
+  width: 640px;
+}
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+.left {
+  background: linear-gradient(220deg,rgb(0, 0, 0),rgb(44, 44, 44),rgb(14, 13, 13));
+  height: calc(100% - 40px);
+  font-family: 'Bruno Ace SC', cursive;
+  top: 20px;
+  position: relative;
+  width: 50%;
+  border-top: 1px solid rgb(186, 184, 184);
+  border-left: 1px solid rgb(186, 184, 184);
+  border-bottom: 1px solid rgb(186, 184, 184);
+}
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 290px;
+  }
+}
+.login {
+  font-size: 35px;
+  font-weight: 800;
+  margin: 50px 40px 40px;
+  color: white;
+}
+.message {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+.right {
+  background: linear-gradient(220deg,rgb(175, 228, 0),rgb(46, 244, 6),rgb(202, 246, 5));
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+  font-family: 'Bruno Ace SC', cursive;
+  color: #F1F1F2;
+  position: relative;
+  width: 50%;
+  border-top: 1px solid rgb(186, 184, 184);
+  border-right: 1px solid rgb(186, 184, 184);
+  border-bottom: 1px solid rgb(186, 184, 184);
+}
+
+
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 360px;
+  }
+  
+}
+.form {
+  padding: 33px;
+  position: absolute;
+} 
+
+input.form-control
+{
+  padding: 0%;
+}
+
+.input-cont
+{
+  width: 240px;
+  padding: 0;
+  margin-bottom: 20px;
+  background: transparent;
+}
+
+.input
+{
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.input input 
+{
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  box-shadow: none;
+  font-size: 15px;
+  color: white;
+}
+
+.input label 
+{
+  position: relative;
+  left: 0;
+  bottom: 35px;
+  color: white;
+  font-size: 18px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input input:focus ~label,
+.input input:valid ~label{
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: black;
+}
+
+.input input:focus,
+.input input:valid{
+  border-color: black;  
+}
+
+
+.acceso,.accesoRapido{ background-color: transparent;} 
+
+.accesoRapido.btn
+{
+  line-height: 35px;
+	text-align: center;
+	cursor: pointer;
+  width: 50px;
+  height: 36px;
+  color: white;
+  font-size: 13px;
+  font-weight: 70;
+}
+
+.btnAccesoRapido {
+	color: #FFF;
+	transition: all 0.5s;
+  position: relative;
+  box-shadow: none;
+  margin-left: 17px;
+}
+
+.btnAccesoRapido::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(255,255,255,0.1);
+	transition: all 0.3s;
+}
+.btnAccesoRapido:hover::before {
+	opacity: 0 ;
+	transform: scale(0.5,0.5);
+}
+.btnAccesoRapido::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border: 1px solid black;
+	transform: scale(1.2,1.2);
+}
+.btnAccesoRapido:hover::after {
+	opacity: 1;
+	transform: scale(1,1);
+}
+
+.acceso.btn {
+	line-height: 35px;
+	text-align: center;
+	cursor: pointer;
+  width: 190px;
+  height: 46px;
+  color: white;
+  font-size: 13px;
+  font-weight: 70;
+  display: inline-block;
+  box-shadow: none;
+}
+
+.btnAcceso {
+	color: #FFF;
+	transition: all 0.5s;
+	position: relative;
+  box-shadow: none;
+  margin-left: 55px;
+  margin-bottom: 10px;
+
+  &:disabled
+  {
+    border : none;
+  }
+}
+
+.btnAcceso::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(255,255,255,0.1);
+	transition: all 0.3s;
+}
+.btnAcceso:hover::before {
+	opacity: 0 ;
+	transform: scale(0.5,0.5);
+}
+.btnAcceso::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border: 1px solid black;
+	transform: scale(1.2,1.2);
+}
+.btnAcceso:hover::after {
+	opacity: 1;
+	transform: scale(1,1);
+}

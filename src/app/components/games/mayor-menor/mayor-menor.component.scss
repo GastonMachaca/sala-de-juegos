@@ -1,0 +1,24 @@
+.row
+{
+    margin-top: 80px;
+    margin-left: 70px;
+}
+
+.carta
+{
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    width: 100px;
+    height: 130px;
+    margin-top: 20px;
+    align-items: flex-start;
+    display: flex;
+}
+
+.center-h {
+    justify-content: center;
+  }
+.center-v {
+    align-items: center;
+}

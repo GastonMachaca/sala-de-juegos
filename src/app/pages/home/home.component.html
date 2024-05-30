@@ -1,0 +1,46 @@
+<div class="home">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="assets/icono.png" alt="" width="45" height="45" class="d-inline-block align-text-top">
+              </a>
+          <button class="navbar-toggler" (click)="isShown = !isShown" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" [attr.aria-expanded]="isShown" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{ 'show': isShown }" >
+            <div class="navbar-nav">
+              <a class="nav-link" (click)="home()" routerLink = "home" routerLinkActive = "active">Home</a>
+              <a class="nav-link" (click)="seleccion()" routerLink = "quienSoy" routerLinkActive = "active">Creator</a>
+              <a class="nav-link" (click)="seleccion()" routerLink = "games" routerLinkActive = "active">Games</a>
+              <a class="nav-link" (click)="seleccion()" routerLink = "listadoPuntajes" routerLinkActive = "active">Puntajes</a>
+              <a class="nav-link" (click)="seleccion()" routerLink = "encuesta" routerLinkActive = "active">Encuesta</a>
+              <a class="nav-link" (click)="seleccion()" routerLink = "resultadosEncuesta" routerLinkActive = "active">Resultados Encuesta</a>
+            </div>
+            <div class=" navbar-nav ms-auto">
+                <a class="nav-link">Username : {{username}}</a>
+                <a class="btn btn-danger" (click)="cerrarSesion()" routerLinkActive = "active">Log Out</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <div class="page" *ngIf="show">
+        <h1 id="txtMenu">{{mensaje}}</h1>
+    </div>
+ 
+    <router-outlet></router-outlet>
+
+    <button class="btn-chat" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
+    <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Chat General</h5>
+          <button type="button" class="btn-close text-reset bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <app-chat></app-chat>
+      </div>
+    </div>  
+
+</div>
+

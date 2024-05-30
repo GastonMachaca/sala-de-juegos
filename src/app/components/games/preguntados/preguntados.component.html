@@ -1,0 +1,30 @@
+<div class="padre text-center">
+
+    <br>
+
+    <h2 *ngIf="mostrarTitulo">Adivina el Personaje de Rick y Morty</h2>
+
+    <h4 *ngIf="pregunta">¿Como se llama este personaje?</h4>
+    <h4>Puntuacion : {{puntuacion}}</h4>
+
+
+    <div *ngIf="pregunta">
+            <img src="{{personajeSeleccionado?.image}}" style="width: 30%; height:30%">
+            <div *ngFor="let opc of informacion">
+                <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="eleccion(opc.name)">{{opc.name}}</button>
+            </div>
+    </div>
+    
+    <div *ngIf="inGame">
+        <label>Si no acierta la pregunta, se acaba el juego. Asi que este seguro de su seleccion...</label>
+        <br>
+        <button (click)="newGame()" class="btn btn-primary " type="button" id="button-nuevo">Nuevo juego</button>
+    </div>
+
+    <div *ngIf="endGame">
+        <label>Perdio... Su puntuacion fue de : {{puntuacion}}</label>
+        <br>
+        <button (click)="newGame()" class="btn btn-primary " type="button" id="button-nuevo">Reintentar</button>
+    </div>
+
+</div>

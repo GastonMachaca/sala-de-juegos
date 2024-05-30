@@ -1,0 +1,10 @@
+
+<div class="body">
+    <div style="height: 100px; padding: 10px;">
+        <h1>Haga click sobre el cuadrado la mayor cantidad de veces que pueda!!!</h1>
+    </div>
+    <div class="game-body" (click)="targetMissed()" #gameBody> 
+        <div class="target" [style.transform]="transformVal" (click)="targetClicked($event)"></div>
+    </div>
+    <div class="score-panel">Tu puntuacion es : {{puntos}} - Tiempo Restante : {{timer}} segundos</div>
+</div>

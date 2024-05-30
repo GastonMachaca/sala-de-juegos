@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col">
+        <img id='hangmanPic' src="https://firebasestorage.googleapis.com/v0/b/formulario-81c3a.appspot.com/o/imagenes%20juegos%2Fahorcado%2F0.png?alt=media&token=259763ce-43c0-478f-a27c-57d28201c26d" alt="ahorcado" style="height: 15em;width:13em;margin-bottom: 20px;">
+        <p>Adivina al superheroe de DC:</p>
+        <p id="wordSpotlight"></p>
+    </div>
+    <div class="col" style="margin-right: 150px">
+        <div id="keyboard">
+            <button *ngFor="let letter of keyboard"
+                class="btn btn-lg btn-secondary m-2"
+                id="{{letter}}"
+                (click)="handleGuess(letter)">{{letter}}
+            </button>
+        </div>
+        <button class="btn btn-danger" (click)="reset()">Reiniciar</button>
+    </div>
+
+</div>
